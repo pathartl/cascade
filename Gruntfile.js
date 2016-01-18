@@ -5,8 +5,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
 	grunt.initConfig({
-		// Sass
-		scss: {
+		sass: {
 			style: {
 				options: {
 					style: 'compressed'
@@ -44,7 +43,7 @@ module.exports = function(grunt) {
 		watch: {
 			scss: {
 				files: ['scss/**/*.scss'],
-				tasks: ['scss:style', 'autoprefixer:style'],
+				tasks: ['build'],
 				options: {
 					livereload: true
 				}
@@ -55,9 +54,9 @@ module.exports = function(grunt) {
 					livereload: true
 				}
 			}
-		},
+		}
 	});
 
-	grunt.registerTask('build', ['scss', 'autoprefixer']);
+	grunt.registerTask('build', ['sass', 'autoprefixer']);
 	grunt.registerTask('default', ['watch']);
 };
