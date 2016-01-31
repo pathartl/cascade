@@ -44,8 +44,10 @@ class Cascade_Walker_Nav_Menu extends Walker_Nav_Menu {
 	    $output .= $indent . '<li id="nav-menu-item-'. $item->ID . '" class="' . $depth_class_names . ' ' . $class_names . '">';
 
 	    $url = $item->url;
-
 	    $url = str_replace( site_url(), '', $url );
+	    if ( $url != '/' ) {
+	    	$url = rtrim( $url, '/' );
+	    }
 	  
 	    // link attributes
 	    $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';

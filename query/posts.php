@@ -7,7 +7,7 @@ $args = array(
 
 $posts = get_posts( $args );
 
-$posts_per_page = 5;
+$posts_per_page = get_option( 'posts_per_page' );
 $total_pages = ceil( count( $posts ) / $posts_per_page );
 $post_page = 0;
 $index = 0;

@@ -2,10 +2,8 @@
 
 function posts_archive_pages_targets( $posts ) {
 
-	$posts_per_page = 5;
+	$posts_per_page = get_option( 'posts_per_page' );
 	$total_pages = ceil( count( $posts ) / $posts_per_page );
-	$post_page = 0;
-	$index = 0;
 
 	for ( $i = 1; $i <= $total_pages; $i++ ) {
 		echo '<var id="/page/' . $i . '"></var>';

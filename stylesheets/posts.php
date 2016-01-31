@@ -35,3 +35,20 @@ nav .pager > li {
 }
 
 <?php endforeach; ?>
+
+<?php
+	$categories = array();
+	$category_objects = get_terms( 'category' );
+
+	foreach ( $category_objects as $category ) {
+		array_push( $categories, $category->slug );
+	}
+?>
+
+<?php foreach ( $categories as $category ) : ?>
+#/category/<?php echo $category; ?>:target ~ [category~="<?php echo $category; ?>"],
+#/category/<?php echo $category; ?>:target ~ [category~="<?php echo $category; ?>"],
+#/category/<?php echo $category; ?>:target ~ [category~="<?php echo $category; ?>"] .article-excerpt {
+	display: block;
+}
+<?php endforeach; ?>
