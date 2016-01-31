@@ -1,6 +1,8 @@
 <?php
 
 include 'meta/posts.php';
+include 'meta/archive-pages.php';
+include 'query/menu-walker.php';
 
 // Setup theme supports
 add_theme_support( 'title-tag' );
@@ -48,5 +50,11 @@ function global_stylesheet() {
 }
 
 add_action( 'template_redirect', 'global_stylesheet' );
+
+function register_menu() {
+	register_nav_menu( 'sidebar-menu', __('Sidebar Menu') );
+}
+
+add_action('init', 'register_menu');
 
 ?>
