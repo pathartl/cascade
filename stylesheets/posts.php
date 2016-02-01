@@ -11,7 +11,7 @@ nav .pager > li {
 
 #/:target ~ .content .post [post-page="1"],
 #/:target ~ .content .post [post-page="1"] .article-excerpt,
-#/:target ~ nav .pager .next[page="2"] {
+#/:target ~ .content nav .pager .next[page="2"] {
 	display: block;
 }
 
@@ -46,9 +46,9 @@ nav .pager > li {
 ?>
 
 <?php foreach ( $categories as $category ) : ?>
-#/category/<?php echo $category; ?>:target ~ [category~="<?php echo $category; ?>"],
-#/category/<?php echo $category; ?>:target ~ [category~="<?php echo $category; ?>"],
-#/category/<?php echo $category; ?>:target ~ [category~="<?php echo $category; ?>"] .article-excerpt {
+#/category/<?php echo $category; ?>:target ~ .content [category~="<?php echo $category; ?>"],
+#/category/<?php echo $category; ?>:target ~ .content [category~="<?php echo $category; ?>"],
+#/category/<?php echo $category; ?>:target ~ .content [category~="<?php echo $category; ?>"] .article-excerpt {
 	display: block;
 }
 <?php endforeach; ?>

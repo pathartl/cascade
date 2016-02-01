@@ -10,12 +10,6 @@ function render_meta_variables_post( $post, $post_page ) {
 		'page/' . + $post_page,
 	);
 
-	$categories = wp_get_post_terms( $post->ID, 'category' );
-
-	foreach ( $categories as $category ) {
-		array_push( $meta, 'category/' . $category->slug );
-	}
-
 	foreach ( $meta as $id ) {
 		echo '<var id="/' . $id . '"></var>';
 	}

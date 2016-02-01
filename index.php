@@ -17,6 +17,12 @@
 
 <?php do_action( 'archive_pages_target', $posts ); ?>
 
+<?php $categories = get_terms( 'category' ); ?>
+
+<?php foreach ( $categories as $category ) : ?>
+<var id="/category/<?php echo $category->slug; ?>"></var>
+<?php endforeach; ?>
+
 <div class="content">
 
 	<div class="container">

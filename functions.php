@@ -10,7 +10,8 @@ add_theme_support( 'html5' );
 add_theme_support( 'post-thumbnails' );
 
 function enqueue_stylesheets() {
-	wp_enqueue_style( 'global', '/style.css', false, '' );
+	wp_enqueue_style( 'behavior', '/style.css', false, '' );
+	wp_enqueue_style( 'global', get_template_directory_uri() . '/style.css', false, '' );
 	wp_enqueue_style( 'bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', false, '' );
 }
 
