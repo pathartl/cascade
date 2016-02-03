@@ -1,4 +1,4 @@
-<div class="posts col-xs-12 col-md-8">
+<div class="posts col-xs-12 col-md-8 col-lg-9">
 
 	<?php foreach ( $posts as $post ) : ?>
 
@@ -15,21 +15,30 @@
 				// Render our variables and create our attributes
 				do_action( 'article_meta_variables_' . $post->post_type, $post, $post_page );
 				$attributes = apply_filters( 'article_meta_attributes_' . $post->post_type, array(), $post, $post_page );
+
+				$thumb_id = get_post_thumbnail_id( $post->ID );
+				$thumb_url_array = wp_get_attachment_image_src( $thumb_id, 'thumbnail-size', true );
+				$thumb_url = $thumb_url_array[0];
+
 			?>
 
 			<article class="article" <?php the_attributes( $attributes ); ?>>
 
-				<label for="post-id--<?php echo $post->ID; ?>">
+				<h1>
 					<a href="#/<?php echo $post->post_type; ?>/<?php echo $post->post_name; ?>">
-						<h1>
-							<?php the_title(); ?>
-						</h1>
+						<?php the_title(); ?>
 					</a>
-				</label>
+				</h1>
+
+				<?php if ( strpos( $thumb_url, 'wp-includes' ) === false ) : ?>
+					<img src="<?php echo $thumb_url; ?>" class="featured-image">
+				<?php endif; ?>
+
 				<div class="article-excerpt">
 					<?php the_content( '' ); ?>
 				</div>
 				<div class="article-content">
+					<img src="<?php echo $thumb_url; ?>" class="featured-image">
 					<?php
 						$content = $post->post_content;
 						$content = apply_filters( 'the_content', $content );

@@ -12,6 +12,19 @@ This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
 
+@import 'colors';
+
+$body-box-shadow: 0px 6px 36px 0px rgba(0, 0, 0, 0.25);
+
+body {
+	background: $primary;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 20px;
+	color: lighten($primary, 50%);
+	font-weight: 300;
+	line-height: 1.5;
+}
+
 .sub-menu {
 	text-indent: 15px;
 }
@@ -19,4 +32,176 @@ Use it to make something cool, have fun, and share what you've learned with othe
 .content img {
 	max-width: 100%;
 	height: auto;
+}
+
+a {
+	color: lighten($primary, 50%);
+	background-image: linear-gradient(to bottom, transparent 50%, $danger 50%);
+	background-size: 100% 8px;
+	background-repeat: no-repeat;
+	background-position: bottom left;
+
+	&:hover {
+		color: lighten($primary, 50%);
+		text-decoration: none;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: $default;
+	font-family: 'Roboto Condensed', sans-serif;
+	font-style: italic;
+	font-weight: 300;
+	// border-left: 4px solid $danger;
+	// padding-left: 10px;
+
+	a {
+		color: $default;
+		background-size: 0% 8px;
+		transition: 0.25s background;
+	}
+
+	a:hover {
+		text-decoration: none;
+		color: $default;
+		background-size: 100% 8px;
+	}
+}
+
+h1,
+.h1 {
+	font-size: 40px;
+}
+
+code,
+pre {
+	font-size: 12px;
+	padding: 5px;
+	background: darken($primary, 24%);
+	color: $info;
+	position: relative;
+	top: -2px;
+	border: none;
+	border-radius: 0;
+}
+
+pre {
+	margin: 20px 0;
+	padding: 15px;
+	box-shadow: $body-box-shadow;
+}
+
+.aligncenter {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wp-caption {
+	background: $primary-alt;
+	text-align: center;
+	padding: 20px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	box-shadow: $body-box-shadow;
+}
+
+.wp-caption-text {
+	margin-bottom: 0;
+	margin-top: 20px;
+	font-size: 16px;
+}
+
+.sidebar {
+	position: relative;
+	padding-right: 30px;
+
+	&::before {
+		content: '';
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: calc(50vw + 292.5px);
+		bottom: 0;
+		height: 100vw;
+		background: $primary-alt;
+		//box-shadow: -13px 0px 25px 10px rgba(0, 0, 0, 0.55);
+		box-shadow: $body-box-shadow;
+	}
+}
+
+.posts {
+	padding-left: 30px;
+}
+
+.post + .post {
+	margin-top: 30px;
+}
+
+a.list-group-item {
+	background: none;
+	border: none;
+	border-radius: 0 !important;
+	color: $default;
+	margin-top: 10px;
+
+	&:hover {
+		color: darken($success, 28%);
+		background: $success;
+		border-bottom: 3px solid $success-alt;
+		box-shadow: 0px 3px 25px -7px rgba(0, 0, 0, 0.65);
+		padding-bottom: 7px;
+	}
+
+}
+
+.list-group-item:first-child {
+	border-radius: 0;
+}
+
+.pager li > a {
+	background: $info;
+	color: darken($info, 42%);
+	border: none;
+	border-radius: 0;
+	border-bottom: 3px solid $info-alt;
+
+	&:hover {
+		background: $info;
+	}
+}
+
+.featured-image {
+	box-shadow: $body-box-shadow;
+	margin-bottom: 30px;
+}
+
+.embed {
+	position: relative;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	box-shadow: $body-box-shadow;
+	background: $primary-alt;
+
+	iframe[src*="youtube.com"],
+	iframe[src*="youtu.be"] {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+
+		& + .embed-spacer {
+			width: 100%;
+			padding-top: (9 / 16) * 100%;
+		}
+	}
+
+	& + br {
+		display: none;
+	}
 }

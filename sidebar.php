@@ -1,4 +1,4 @@
-<div class="sidebar col-xs-12 col-md-4">
+<div class="sidebar col-xs-12 col-md-4 col-lg-3">
 	<h1><?php echo get_bloginfo( 'name' ); ?></h1>
 	<div class="list-group">
 		<?php
